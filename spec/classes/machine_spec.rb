@@ -45,7 +45,7 @@ describe 'docker::machine', :type => :class do
 
   context 'when no proxy is provided' do
     let(:params) { {:version => '0.16.0'} }
-    it { is_expected.to contain_exec('Install Docker machine 0.16.0').with_command(
+    it { is_expected.to contain_exec('Install Docker Machine 0.16.0').with_command(
       'curl -s -S -L  https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-Linux-x86_64 -o /usr/local/bin/docker-machine-0.16.0')
     }
   end
@@ -54,7 +54,7 @@ describe 'docker::machine', :type => :class do
     let(:params) { {:proxy => 'http://proxy.example.org:3128/',
                     :version => '0.16.0'} }
     it { is_expected.to compile }
-    it { is_expected.to contain_exec('Install Docker machine 0.16.0').with_command(
+    it { is_expected.to contain_exec('Install Docker Machine 0.16.0').with_command(
       'curl -s -S -L --proxy http://proxy.example.org:3128/ https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-Linux-x86_64 -o /usr/local/bin/docker-machine-0.16.0')
     }
   end
@@ -69,10 +69,10 @@ describe 'docker::machine', :type => :class do
   end
 
   context 'when proxy contains username and password' do
-    let(:params)  { {:proxy => 'http://user:password@proxy.example.org:3128/',
-                     :version => '0.16.0'} }
+    let(:params) { {:proxy => 'http://user:password@proxy.example.org:3128/',
+                    :version => '0.16.0'} }
     it { is_expected.to compile }
-    it { is_expected.to contain_exec('Install Docker machine 0.16.0').with_command(
+    it { is_expected.to contain_exec('Install Docker Machine 0.16.0').with_command(
       'curl -s -S -L --proxy http://user:password@proxy.example.org:3128/ https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-Linux-x86_64 -o /usr/local/bin/docker-machine-0.16.0')
     }
   end
@@ -81,7 +81,7 @@ describe 'docker::machine', :type => :class do
     let(:params) { {:proxy => 'http://10.10.10.10:3128/',
                     :version => '0.16.0'} }
     it { is_expected.to compile }
-    it { is_expected.to contain_exec('Install Docker machine 0.16.0').with_command(
+    it { is_expected.to contain_exec('Install Docker Machine 0.16.0').with_command(
       'curl -s -S -L --proxy http://10.10.10.10:3128/ https://github.com/docker/machine/releases/download/v0.16.0/docker-machine-Linux-x86_64 -o /usr/local/bin/docker-machine-0.16.0')
     }
   end
