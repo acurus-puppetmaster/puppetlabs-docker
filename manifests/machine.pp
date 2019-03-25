@@ -56,7 +56,7 @@ class docker::machine(
       $docker_download_command = "if (Invoke-WebRequest ${docker_machine_url} ${proxy_opt} -UseBasicParsing -OutFile \"${docker_machine_location_versioned}\") { exit 0 } else { exit 1}"
 # lint:endignore
 
-      exec { "Install Docker machine ${version}":
+      exec { "Install Docker Machine ${version}":
         command  => template('docker/windows/download_docker_machine.ps1.erb'),
         provider => powershell,
         creates  => $docker_machine_location_versioned,
@@ -69,7 +69,7 @@ class docker::machine(
       }
     } else {
       ensure_packages(['curl'])
-      exec { "Install Docker machine ${version}":
+      exec { "Install Docker Machine ${version}":
         path    => '/usr/bin/',
         cwd     => '/tmp',
         command => "curl -s -S -L ${proxy_opt} ${docker_machine_url} -o ${docker_machine_location_versioned}",
