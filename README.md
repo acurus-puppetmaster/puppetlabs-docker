@@ -989,6 +989,7 @@ docker::plugin {'foo/fooplugin:latest'
 * docker
 * docker::compose
 * docker::images
+* docker::machine
 * docker::networks
 * docker::params
 * docker::plugins
