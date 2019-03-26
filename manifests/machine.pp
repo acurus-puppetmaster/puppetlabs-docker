@@ -65,7 +65,7 @@ class docker::machine(
       file { $docker_machine_location:
         ensure  => 'link',
         target  => $docker_machine_location_versioned,
-        require => Exec["Install Docker machine ${version}"]
+        require => Exec["Install Docker Machine ${version}"]
       }
     } else {
       ensure_packages(['curl'])
@@ -80,7 +80,7 @@ class docker::machine(
       file { $docker_machine_location_versioned:
         owner   => $file_owner,
         mode    => '0755',
-        require => Exec["Install Docker machine ${version}"]
+        require => Exec["Install Docker Machine ${version}"]
       }
 
       file { $docker_machine_location:
